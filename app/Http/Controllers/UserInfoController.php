@@ -64,8 +64,8 @@ class UserInfoController extends Controller
                 ->update(['NumberofVotes' => $vote, 'Invalid_Votes' => $Invalidvote, 'updated_at' => $now]);
 
             //Log transaction to Watchers log
-            $FirstName = DB::table('watchers')->where('PrecinctCode', $id)->value('FirstName');
-            $LastName = DB::table('watchers')->where('PrecinctCode', $id)->value('LastName');
+            $FirstName = DB::table('watchers')->where('Precinct_id', $id)->value('FirstName');
+            $LastName = DB::table('watchers')->where('Precinct_id', $id)->value('LastName');
             $BarangayID = DB::table('precincts')->where('PrecinctCode', $id)->value('Brgy_id');
             $BarangayName = DB::table('barangays')->where('brgy_id', $BarangayID)->value('brgyName');
             
