@@ -23,6 +23,7 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('assets_Admin/css/demo_1/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
 
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('assets_Admin/images/favicon.png') }}">
@@ -34,39 +35,16 @@
         <div class="card mt-5">
             <h3 class="card-header p-3">Watchers Transaction Log</h3>
             <div class="card-body">
-
-                {{-- 
-                   
-                 --}}
-
-
+ 
                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <div class="pb-4 bg-black  ">
-                        <label for="table-search" class="sr-only">Search</label>
-                        <div class="relative mt-1">
-                            <div
-                                class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                                </svg>
-                            </div>
-                            <input type="text" id="table-search"
-                                class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Search for items">
-                        </div>
-                    </div>
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <table id="search-table2" class="w-full text-sm text-center text-gray-600">
+                        <thead class="text-xs  text-gray-700 uppercase bg-gray-550">
                             <tr>
 
                                 <th scope="col" class="px-6 py-3">
-                                    FirstName
+                                  Name
                                 </th>
-                                <th scope="col" class="px-6 py-3">
-                                    LastName
-                                </th>
+                                
                                 <th scope="col" class="px-6 py-3">
                                     Clustered Precinct
                                 </th>
@@ -86,12 +64,10 @@
                                 <tr
                                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
 
-                                    <th scope="row" class="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap ">
-                                        {{ $PrecinctLog->FirstName }}
+                                    <th scope="row"
+                                        class="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap ">
+                                        {{ $PrecinctLog->FirstName }} {{ $PrecinctLog->LastName }}
                                     </th>
-                                    <td class="px-6 py-4 text-center  text-gray-900">
-                                        {{ $PrecinctLog->LastName }}
-                                    </td>
                                     <td class="px-6 py-4 text-center  text-gray-900">
                                         {{ $PrecinctLog->PrecinctCode }}
                                     </td>
@@ -102,7 +78,12 @@
                                         {{ $PrecinctLog->NumberofVotes }}
                                     </td>
                                     <td class="px-6 py-4 text-center  text-gray-900">
-                                        {{ $PrecinctLog->updated_at }}
+                                        @if ($PrecinctLog->updated_at == null)
+                                            No update yet
+                                        @else
+                                        {{  \Carbon\Carbon::parse($PrecinctLog->updated_at)->DiffForHumans() }}
+                                        @endif
+                               
                                     </td>
 
                                 </tr>
@@ -117,5 +98,14 @@
 
 
 </body>
+<script>
+   
+    if (document.getElementById("search-table2") && typeof simpleDatatables.DataTable !== 'undefined') {
+        const dataTable = new simpleDatatables.DataTable("#search-table2", {
+            searchable: true,
+            sortable: true,
+        });
+    }
+</script>
 
 </html>
