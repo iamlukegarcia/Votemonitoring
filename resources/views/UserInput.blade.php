@@ -97,14 +97,14 @@
                                     value="{{ $Invalid }}" hidden>
                                     <input type="number" class="form-control" name="Registered"
                                     value="{{ $Registered }}" hidden>
-                                <input type="number" placeholder = {{ $PrecinctID }} class="form-control" name="vote" id="vote" required>
+                                <input type="number" placeholder = Example: {{ $PrecinctID }} class="form-control" name="vote" id="vote" required>
 
                                 <label for="exampleInputEmail1" class="form-label h5">Ilan ang Invalid votes?</label>
-                                <input type="number"  placeholder = {{ $PrecinctID }}  class="form-control" name="Invalidvote" id="Invalidvote" required>
+                                <input type="number"  placeholder = Example: {{ $PrecinctID }}  class="form-control" name="Invalidvote" id="Invalidvote" required>
                             </div>
                             <div class="text-start">
                                 <label for="exampleInputPassword1" class="h5 ">Huling bilang ng bumoto as of
-                                    : {{ $LastUpdate }}</label>
+                                    : {{ $LastUpdate }} </label>
                             </div>
                             <div class="mb-4  text-start">
                                 <label for="exampleInputPassword1" class=" h4 text-start"> Valid Votes: <span
