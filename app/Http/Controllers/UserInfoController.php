@@ -58,7 +58,7 @@ class UserInfoController extends Controller
         $Invalidvote = $request->Invalidvote;
         $id = $request->id;
         $now = now();
-        if ($LastVoteUpdate < $vote && $LastInvalidVoteUpdate <= $Invalidvote && $vote <= $Registered ) {
+        if ($LastVoteUpdate <= $vote && $LastInvalidVoteUpdate <= $Invalidvote && $vote <= $Registered ) {
             DB::table('voting_transactions')
                 ->where('Precinct_id', $id)
                 ->update(['NumberofVotes' => $vote, 'Invalid_Votes' => $Invalidvote, 'updated_at' => $now]);
