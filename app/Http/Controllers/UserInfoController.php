@@ -22,7 +22,7 @@ class UserInfoController extends Controller
         $LastName = DB::table('watchers')->where('Watchers_id', $WatcherID)->value('LastName');
 
         $Designation = DB::table('watchers')->where('Watchers_id', $WatcherID)->value('Designation');
-        $PrecinctID = DB::table('watchers')->where('Watchers_id', $WatcherID)->value('PrecinctCode');
+        $PrecinctID = DB::table('watchers')->where('Watchers_id', $WatcherID)->value('Precinct_id');
         $BarangayID = DB::table('precincts')->where('Precinct_id', $PrecinctID)->value('Brgy_id');
         $BarangayName = DB::table('barangays')->where('brgy_id', $BarangayID)->value('brgyName');
         $Registered = DB::table('precincts')->where('Precinct_id', $PrecinctID)->value('RegisteredVoters');
