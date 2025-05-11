@@ -20,7 +20,6 @@ class UserInfoController extends Controller
         $WatcherID = Auth::user()->id;
         $FirstName = DB::table('watchers')->where('Watchers_id', $WatcherID)->value('FirstName');
         $LastName = DB::table('watchers')->where('Watchers_id', $WatcherID)->value('LastName');
-
         $Designation = DB::table('watchers')->where('Watchers_id', $WatcherID)->value('Designation');
         $PrecinctID = DB::table('watchers')->where('Watchers_id', $WatcherID)->value('Precinct_id');
         $BarangayID = DB::table('precincts')->where('Precinct_id', $PrecinctID)->value('Brgy_id');
@@ -31,6 +30,8 @@ class UserInfoController extends Controller
         $LastUpdate = DB::table('voting_transactions')->where('Watcher_id', $WatcherID)->value('updated_at');
         $Invalid = DB::table('voting_transactions')->where('Watcher_id', $WatcherID)->value('Invalid_Votes');
         $LastUpdate2 = Carbon::parse($LastUpdate)->diffForHumans();
+
+        $Invalid = DB::table('voting_transactions')->where('Watcher_id', 1)->value('updated_at');
         return view('UserInput', [
             'FirstName' => $FirstName,
             'LastName' => $LastName,

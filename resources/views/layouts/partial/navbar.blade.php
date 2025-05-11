@@ -5,8 +5,7 @@
             <span class="mdi mdi-chevron-double-left"></span>
         </button>
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img
-                    src="../assets/images/logo-mini.svg" alt="logo" /></a>
+            
         </div>
         <ul class="navbar-nav">
             <li class="nav-item nav-logout d-none d-md-block mr-3">
