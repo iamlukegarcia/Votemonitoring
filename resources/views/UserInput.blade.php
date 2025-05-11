@@ -91,12 +91,13 @@
             <div class="col-sm">
 
             </div>
-            @if (session('Success'))
-                <div class="alert alert-success">
-                    {{ session('Success') }}
-                </div>
-            @endif
+
             <div class="col-sm">
+                @if (session('Success'))
+                    <div class="alert alert-success">
+                        {{ session('Success') }}
+                    </div>
+                @endif
                 <div class="w-full max-w-sm p-3 bg-gray border border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8">
                     <form id="userform" class="space-y-6" method="post" action="{{ route('user.update') }}">
                         @csrf
