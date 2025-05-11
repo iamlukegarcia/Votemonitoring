@@ -58,41 +58,36 @@
             </div>
         </div>
     </nav>
-    <div class="container-fluid   pb-5">
-        <div class="row mt-2 text-center">
-            <div class="col">
-            </div>
-
-            <div class="col">
-                <div class="card text-start  mb-3 bg-light bg-gradient">
-                    <div class="card-body">
-                        Welcome {{ $FirstName }} {{ $LastName }}
-                    </div>
-                </div>
-                <div class="card text-start  bg-light bg-gradient">
-                    <div class="card-body">
-                        Designated Precinct: Clustered Precinct {{ $PrecinctName }}<br>
-                        Designated Barangay: {{ $BarangayName }}<br>
-                        Designated Position: {{ $Designation }}<br>
-                        Number of registered: {{ $Registered }} <br>
-                        Hindi pa nakakaboto: <span class="h6"> {{ $Registered - $NumVotes }}
-                            ({{ round(($NumVotes / $Registered) * 100, 2) }}%) <br></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container">
+     <div class="container">
         <div class="row">
             <div class="col-sm">
 
             </div>
 
             <div class="col-sm">
+                {{-- user info fetch --}}
+
+                <div class="block my-3 max-w-sm p-6 bg-gray-200 border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
+                    <div>
+                        <div  >
+                            Welcome {{ $FirstName }} {{ $LastName }}
+                        </div>
+                    </div>
+                    <div class= >
+                        <div  >
+                            Designated Precinct: Clustered Precinct {{ $PrecinctName }}<br>
+                            Designated Barangay: {{ $BarangayName }}<br>
+                            Designated Position: {{ $Designation }}<br>
+                            Number of registered: {{ $Registered }} <br>
+                            Hindi pa nakakaboto: <span class="h6"> {{ $Registered - $NumVotes }}
+                                ({{ round(($NumVotes / $Registered) * 100, 2) }}%) <br></span>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                {{-- Start user input --}}
                 @if (session('Success'))
                     <div class="alert alert-success">
                         {{ session('Success') }}
