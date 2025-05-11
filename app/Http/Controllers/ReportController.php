@@ -140,7 +140,7 @@ class ReportController extends Controller
         ];
 
         $data = [
-
+            'CityCount' => $CityCount
             'Barangaycount' => $BarangayCount,
             'Barangay' => $Barangay,
             'BarangayData' => $BarangayData,

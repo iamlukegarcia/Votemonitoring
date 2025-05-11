@@ -75,7 +75,7 @@
                                         {{ $PrecinctLog->FirstName }} {{ $PrecinctLog->LastName }}
                                     </th>
                                     <td class="px-6 py-4 text-center  text-gray-900">
-                                        {{ $PrecinctLog->PrecinctCode }}
+                                        {{ $PrecinctLog->Precinct_id }}
                                     </td>
                                     <td class="px-6 py-4 text-center  text-gray-900">
                                         {{ $PrecinctLog->brgyName }}
