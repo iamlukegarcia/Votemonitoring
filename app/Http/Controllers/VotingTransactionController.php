@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\VotingTransaction;
+use Illuminate\Support\Facades\DB;
 use DataTables;
 class VotingTransactionController extends Controller
 {
