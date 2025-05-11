@@ -58,7 +58,7 @@ class ReportController extends Controller
         $PobTresNum = DB::table('voting_transactions')->join('barangays', 'voting_transactions.Brgy_id', '=', 'barangays.brgy_id')->where('barangays.brgyName', 'Poblacion Tres')->sum('NumberofVotes');
         $PobTresReg = DB::table('precincts')->join('barangays', 'precincts.Brgy_id', '=', 'barangays.brgy_id')->where('barangays.brgyName', 'Poblacion Tres')->sum('RegisteredVoters');
         $Barangay = DB::table('barangays')->get();
-
+        $CityCount = DB::table('voting_transactions')->where('updated_at', '<>', null)->count();
         $Baclarancount = DB::table('voting_transactions')->where('brgy_id', 1)->where('updated_at', '<>', null)->count();
         $Banaycount = DB::table('voting_transactions')->where('brgy_id', 2)->where('updated_at', '<>', null)->count();
         $Banliccount = DB::table('voting_transactions')->where('brgy_id', 3)->where('updated_at', '<>', null)->count();
@@ -140,7 +140,7 @@ class ReportController extends Controller
         ];
 
         $data = [
-            
+
             'Barangaycount' => $BarangayCount,
             'Barangay' => $Barangay,
             'BarangayData' => $BarangayData,

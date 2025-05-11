@@ -31,7 +31,7 @@ class UserInfoController extends Controller
         $Invalid = DB::table('voting_transactions')->where('Watcher_id', $WatcherID)->value('Invalid_Votes');
         $LastUpdate2 = Carbon::parse($LastUpdate)->diffForHumans();
 
-        $Invalid = DB::table('voting_transactions')->where('Watcher_id', 1)->value('updated_at');
+       
         return view('UserInput', [
             'FirstName' => $FirstName,
             'LastName' => $LastName,
