@@ -83,37 +83,72 @@
 
         <!-- Barangay Level starts here -->
         <div class="row mb-3">
-
-            <div class=" w-full bg-white rounded-lg shadow-sm dark:bg-gray-800 p-4 md:p-6">
+            <div class=" w-full bg-white rounded-lg shadow-sm dark:bg-gray-800 p-2">
                 <div class="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
-                    <dl>
-                        <dt class="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">VOTE MONITORING</dt>
-                        <dd class="leading-none text-3xl font-bold text-gray-900  ">BARANGAY</dd>
-                    </dl>
-                </div>
-            </div>
-         </div>
-         <div class="row">
-            @foreach($Barangay as $barangays)
-            <div class="col-sm-3 stretch-card grid-margin">
-                <div class="card">
-                    <div class="card-body px-3 text-dark">
-                        <div class="flex justify-between mb-1">
-                            <span class="text-base font-medium text-black-700  ">
-                                {{  $barangays->brgyName }}     
-                            </span>
-                            <span class="text-sm font-medium text-black-700  ">  {{ $BarangayData[$barangays->brgy_id] }}   %</span>
-                        </div>
-                        <div class="h-6 w-full bg-gray-200 rounded-full h-2.5 ">
-                            <div class="h-6 bg-red-600 text-large font-medium text-blue-50 text-center p-0.5 leading-none rounded-full"
-                                style="width:  {{ $BarangayData[$barangays->brgy_id] }}%">
-                                <span class=" font-weight-bold ">   {{ $BarangayData[$barangays->brgy_id] }}</span>
-                            </div>
-                        </div>
-                        <span class="text-sm  font-medium text-black-700  ">  {{ $Barangaycount[$barangays->brgy_id] }} of out {{  $barangays->NumberofPrecinct  }} Precincts are updated </span>
+                    <div class="col">
+                        <dl>
+                            <dt class="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">VOTE MONITORING
+                            </dt>
+                            <dd class="leading-none text-3xl font-bold text-gray-900  ">BARANGAY</dd>
+                        </dl>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body px-3 text-dark">
+                        <div class="d-flex justify-content-between">
+                            <p class="text-muted font-weight-bold  font-13 mb-0">Updated Precincts</p>
+                        </div>
+                        <h1 class="font-weight-semibold text-center">{{ $CityCount }}
+                            <span class="text-info">({{ round(($CityCount / 258) * 100, 2) }}%)</span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body px-3 text-dark">
+                        <div class="d-flex justify-content-between">
+                            <p class="text-muted font-weight-bold font-13 mb-0">Precincts with <span
+                                    class="text-red-600">
+                                    NO</span> update</p>
+                        </div>
+                        <h1 class="font-weight-semibold text-center">{{ 258 - $CityCount }}
+                            <span class="text-info">({{ round(((258 - $CityCount) / 258) * 100, 2) }}%)</span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach ($Barangay as $barangays)
+                <div class="col-sm-3 stretch-card grid-margin">
+                    <div class="card">
+                        <div class="card-body px-3 text-dark">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-base font-medium text-black-700  ">
+                                    {{ $barangays->brgyName }}
+                                </span>
+                                <span class="text-sm font-medium text-black-700  ">
+                                    {{ $BarangayData[$barangays->brgy_id] }} %</span>
+                            </div>
+                            <div class="h-6 w-full bg-gray-200 rounded-full h-2.5 ">
+                                <div class="h-6 bg-red-600 text-large font-medium text-blue-50 text-center p-0.5 leading-none rounded-full"
+                                    style="width:  {{ $BarangayData[$barangays->brgy_id] }}%">
+                                    <span class=" font-weight-bold "> {{ $BarangayData[$barangays->brgy_id] }}</span>
+                                </div>
+                            </div>
+                            <span class="text-sm  font-medium text-black-700  ">
+                                {{ $Barangaycount[$barangays->brgy_id] }} of out {{ $barangays->NumberofPrecinct }}
+                                Precincts are updated </span>
+                        </div>
+                    </div>
+                </div>
             @endforeach
         </div>
     </div>

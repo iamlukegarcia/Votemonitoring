@@ -29,6 +29,9 @@ Route::get('/', function () {
     return view('Login');
 });
  
+Route::get('/Color', function () {
+    return view('Color');
+});
 Route::get('barangays', [BarangaysController::class,'index'])->name('barangays.index');;
 Route::get('Schools', [SchoolController::class,'index'])->name('Schools.index');;
 Route::get('Precincts', [PrecinctController::class,'index'])->name('Precincts.index');;
@@ -39,7 +42,11 @@ Route::get('TransactionLog', [WatcherslogController::class,'index'])->name('Watc
 Route::get('Reports', [ReportController::class,'index'])->name('ReportController.index');;
 Route::get('test', [ReportController::class,'test'])->name('ReportController.test');;
 Route::get('reset', [VotingTransactionController::class,'reset'])->name('ReportController.reset');;
- 
+Route::get('Blue', [WatcherslogController::class,'Blue'])->name('Watcherslog.Blue');;
+Route::get('White', [WatcherslogController::class,'White'])->name('Watcherslog.White');;
+Route::get('Yellow', [WatcherslogController::class,'Yellow'])->name('Watcherslog.Yellow');;
+Route::get('Red', [WatcherslogController::class,'Red'])->name('Watcherslog.Red');;
+
 Route::post('login', [LoginController::class,'authenticate'])->name('login.authenticate');;
 Route::post('logout', [LoginController::class,'logout'])->name('login.logout');;
 Route::get('userinput', [UserInfoController::class,'index'])->name('login.get');;
