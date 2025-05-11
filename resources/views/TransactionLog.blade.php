@@ -52,7 +52,13 @@
                                     Barangay
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Registered
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Number of Votes
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Invalid Votes
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Last update
@@ -75,7 +81,13 @@
                                         {{ $PrecinctLog->brgyName }}
                                     </td>
                                     <td class="px-6 py-4 text-center  text-gray-900">
+                                        {{ $PrecinctLog->RegisteredVoters }}
+                                    </td>
+                                    <td class="px-6 py-4 text-center  text-gray-900">
                                         {{ $PrecinctLog->NumberofVotes }}
+                                    </td>
+                                    <td class="px-6 py-4 text-center  text-gray-900">
+                                        {{ $PrecinctLog->Invalid_Votes }}
                                     </td>
                                     <td class="px-6 py-4 text-center  text-gray-900">
                                         @if ($PrecinctLog->updated_at == null)
