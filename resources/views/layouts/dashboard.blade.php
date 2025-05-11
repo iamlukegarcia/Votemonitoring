@@ -103,9 +103,9 @@
                         <div class="d-flex justify-content-between">
                             <p class="text-muted font-weight-bold  font-13 mb-0">Updated Precincts</p>
                         </div>
-                        <h1 class="font-weight-semibold text-center">{{ $CityCount }}
+                        <h2 class="font-weight-semibold text-center">{{ $CityCount }}
                             <span class="text-info">({{ round(($CityCount / 258) * 100, 2) }}%)</span>
-                        </h1>
+                        </h2>
                     </div>
                 </div>
             </div>
@@ -117,9 +117,9 @@
                                     class="text-red-600">
                                     NO</span> update</p>
                         </div>
-                        <h1 class="font-weight-semibold text-center">{{ 258 - $CityCount }}
+                        <h2 class="font-weight-semibold text-center">{{ 258 - $CityCount }}
                             <span class="text-info">({{ round(((258 - $CityCount) / 258) * 100, 2) }}%)</span>
-                        </h1>
+                        </h2>
                     </div>
                 </div>
             </div>
