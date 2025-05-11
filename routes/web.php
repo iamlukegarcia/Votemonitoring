@@ -37,7 +37,7 @@ Route::get('Candidates', [CandidateController::class,'index'])->name('Candidates
 Route::get('VotingTransactions', [VotingTransactionController::class,'index'])->name('VotingTransaction.index');;
 Route::get('TransactionLog', [WatcherslogController::class,'index'])->name('Watcherslog.index');;
 Route::get('Reports', [ReportController::class,'index'])->name('ReportController.index');;
-Route::get('BarangayReports', [ReportController::class,'test'])->name('ReportController.test');;
+Route::get('test', [ReportController::class,'test'])->name('ReportController.test');;
 Route::get('reset', [VotingTransactionController::class,'reset'])->name('ReportController.reset');;
  
 Route::post('login', [LoginController::class,'authenticate'])->name('login.authenticate');;

@@ -110,7 +110,7 @@
                                 <span class=" font-weight-bold ">   {{ $BarangayData[$barangays->brgy_id] }}</span>
                             </div>
                         </div>
-                        <span class="text-sm  font-medium text-black-700  ">  X of out {{  $barangays->NumberofPrecinct  }} Precincts are updated </span>
+                        <span class="text-sm  font-medium text-black-700  ">  {{ $Barangaycount[$barangays->brgy_id] }} of out {{  $barangays->NumberofPrecinct  }} Precincts are updated </span>
                     </div>
                 </div>
             </div>
