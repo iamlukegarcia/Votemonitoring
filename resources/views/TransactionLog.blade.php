@@ -35,7 +35,7 @@
     <div class="container">
         <div class="row ">
             @foreach ($Barangays as $Barangay)
-                <div class="col-3 mb-3">
+                <div class="col-sm mb-3">
                     <div class="card">
                         <div class="card-body px-3 text-dark">
                             <div class="d-flex justify-content-between">
