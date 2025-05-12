@@ -61,24 +61,24 @@ class ReportController extends Controller
         $CurrentTime = Carbon::now();
         $UpdateTime = $CurrentTime->subHour();
         $CityCount = DB::table('voting_transactions')->where('updated_at', '>', $UpdateTime)->count();
-        $Baclarancount = DB::table('voting_transactions')->where('brgy_id', 1)->where('updated_at',  '>', $UpdateTime)->count();
-        $Banaycount = DB::table('voting_transactions')->where('brgy_id', 2)->where('updated_at',  '>', $UpdateTime)->count();
-        $Banliccount = DB::table('voting_transactions')->where('brgy_id', 3)->where('updated_at',  '>', $UpdateTime)->count();
-        $Bigaacount = DB::table('voting_transactions')->where('brgy_id', 4)->where('updated_at',  '>', $UpdateTime)->count();
-        $Butongcount = DB::table('voting_transactions')->where('brgy_id', 5)->where('updated_at',  '>', $UpdateTime)->count();
-        $Casilecount = DB::table('voting_transactions')->where('brgy_id', 6)->where('updated_at',  '>', $UpdateTime)->count();
-        $Diezmocount = DB::table('voting_transactions')->where('brgy_id', 7)->where('updated_at',  '>', $UpdateTime)->count();
-        $Gulodcount = DB::table('voting_transactions')->where('brgy_id', 8)->where('updated_at',  '>', $UpdateTime)->count();
-        $Mamatidcount = DB::table('voting_transactions')->where('brgy_id', 9)->where('updated_at',  '>', $UpdateTime)->count();
-        $Marinigcount = DB::table('voting_transactions')->where('brgy_id', 10)->where('updated_at',  '>', $UpdateTime)->count();
-        $Niugancount = DB::table('voting_transactions')->where('brgy_id', 11)->where('updated_at',  '>', $UpdateTime)->count();
-        $Pittlandcount = DB::table('voting_transactions')->where('brgy_id', 12)->where('updated_at',  '>', $UpdateTime)->count();
-        $Pulocount = DB::table('voting_transactions')->where('brgy_id', 13)->where('updated_at',  '>', $UpdateTime)->count();
-        $Salacount = DB::table('voting_transactions')->where('brgy_id', 14)->where('updated_at',  '>', $UpdateTime)->count();
-        $SanIsidrocount = DB::table('voting_transactions')->where('brgy_id', 15)->where('updated_at',  '>', $UpdateTime)->count();
-        $PobUnocount = DB::table('voting_transactions')->where('brgy_id', 16)->where('updated_at',  '>', $UpdateTime)->count();
-        $PobDoscount = DB::table('voting_transactions')->where('brgy_id', 17)->where('updated_at',  '>', $UpdateTime)->count();
-        $PobTrescount = DB::table('voting_transactions')->where('brgy_id', 18)->where('updated_at',  '>', $UpdateTime)->count();
+        $Baclarancount = DB::table('voting_transactions')->where('brgy_id', 1)->where('updated_at', '>', $UpdateTime)->count();
+        $Banaycount = DB::table('voting_transactions')->where('brgy_id', 2)->where('updated_at', '>', $UpdateTime)->count();
+        $Banliccount = DB::table('voting_transactions')->where('brgy_id', 3)->where('updated_at', '>', $UpdateTime)->count();
+        $Bigaacount = DB::table('voting_transactions')->where('brgy_id', 4)->where('updated_at', '>', $UpdateTime)->count();
+        $Butongcount = DB::table('voting_transactions')->where('brgy_id', 5)->where('updated_at', '>', $UpdateTime)->count();
+        $Casilecount = DB::table('voting_transactions')->where('brgy_id', 6)->where('updated_at', '>', $UpdateTime)->count();
+        $Diezmocount = DB::table('voting_transactions')->where('brgy_id', 7)->where('updated_at', '>', $UpdateTime)->count();
+        $Gulodcount = DB::table('voting_transactions')->where('brgy_id', 8)->where('updated_at', '>', $UpdateTime)->count();
+        $Mamatidcount = DB::table('voting_transactions')->where('brgy_id', 9)->where('updated_at', '>', $UpdateTime)->count();
+        $Marinigcount = DB::table('voting_transactions')->where('brgy_id', 10)->where('updated_at', '>', $UpdateTime)->count();
+        $Niugancount = DB::table('voting_transactions')->where('brgy_id', 11)->where('updated_at', '>', $UpdateTime)->count();
+        $Pittlandcount = DB::table('voting_transactions')->where('brgy_id', 12)->where('updated_at', '>', $UpdateTime)->count();
+        $Pulocount = DB::table('voting_transactions')->where('brgy_id', 13)->where('updated_at', '>', $UpdateTime)->count();
+        $Salacount = DB::table('voting_transactions')->where('brgy_id', 14)->where('updated_at', '>', $UpdateTime)->count();
+        $SanIsidrocount = DB::table('voting_transactions')->where('brgy_id', 15)->where('updated_at', '>', $UpdateTime)->count();
+        $PobUnocount = DB::table('voting_transactions')->where('brgy_id', 16)->where('updated_at', '>', $UpdateTime)->count();
+        $PobDoscount = DB::table('voting_transactions')->where('brgy_id', 17)->where('updated_at', '>', $UpdateTime)->count();
+        $PobTrescount = DB::table('voting_transactions')->where('brgy_id', 18)->where('updated_at', '>', $UpdateTime)->count();
 
         $BarangayCount = [
             '1' => $Baclarancount,
@@ -101,6 +101,27 @@ class ReportController extends Controller
             '18' => $PobTrescount,
         ];
 
+        $BarangayReg = [
+            '1' => $BaclaranReg,
+            '2' => $BanayReg,
+            '3' => $BanlicReg,
+            '4' => $BigaaReg,
+            '5' => $ButongReg,
+            '6' => $CasileReg,
+            '7' => $DiezmoReg,
+            '8' => $GulodReg,
+            '9' => $MamatidReg,
+            '10' => $MarinigReg,
+            '11' => $NiuganReg,
+            '12' => $PittlandReg,
+            '13' => $PuloReg,
+            '14' => $SalaReg,
+            '15' => $SanIsidroReg,
+            '16' => $PobUnoReg,
+            '17' => $PobDosReg,
+            '18' => $PobTresReg,
+        ];
+
         $Baclaran = round(($BaclaranNum / $BaclaranReg) * 100, 2);
         $Banay = round(($BanayNum / $BanayReg) * 100, 2);
         $Banlic = round(($BanlicNum / $BanlicReg) * 100, 2);
@@ -119,6 +140,27 @@ class ReportController extends Controller
         $PobUno = round(($PobUnoNum / $PobUnoReg) * 100, 2);
         $PobDos = round(($PobDosNum / $PobDosReg) * 100, 2);
         $PobTres = round(($PobTresNum / $PobTresReg) * 100, 2);
+
+        $BarangayNum = [
+            '1' => $BaclaranNum,
+            '2' => $BanayNum,
+            '3' => $BanlicNum,
+            '4' => $BigaaNum,
+            '5' => $ButongNum,
+            '6' => $CasileNum,
+            '7' => $DiezmoNum,
+            '8' => $GulodNum,
+            '9' => $MamatidNum,
+            '10' => $MarinigNum,
+            '11' => $NiuganNum,
+            '12' => $PittlandNum,
+            '13' => $PuloNum,
+            '14' => $SalaNum,
+            '15' => $SanIsidroNum,
+            '16' => $PobUnoNum,
+            '17' => $PobDosNum,
+            '18' => $PobTresNum,
+        ];
 
         $BarangayData = [
             '1' => $Baclaran,
@@ -141,7 +183,9 @@ class ReportController extends Controller
             '18' => $PobTres,
         ];
 
-        $data = [ 
+        $data = [
+            'BarangayNum' => $BarangayNum,
+            'BarangayReg' => $BarangayReg,
             'CityCount' => $CityCount,
             'Barangaycount' => $BarangayCount,
             'Barangay' => $Barangay,
@@ -164,13 +208,12 @@ class ReportController extends Controller
             'PobUno' => $PobUno,
             'PobDos' => $PobDos,
             'PobTres' => $PobTres,
-
             'RegVotes' => $RegVotes,
             'NumVotes' => $NumVotes,
             'InvalidVotes' => $InvalidVotes,
         ];
         return view('Reports')->with($data);
-          //return $data;
+        //return $data;
     }
 
     public function test(Request $request)

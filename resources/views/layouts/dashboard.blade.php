@@ -129,15 +129,25 @@
             @foreach ($Barangay as $barangays)
                 <div class="col-sm-3 stretch-card grid-margin">
                     <div class="card">
-                        <div class="card-body px-3 text-dark">
-                            <div class="flex justify-between mb-1">
-                                <span class="text-base font-medium text-black-700  ">
-                                    {{ $barangays->brgyName }}
-                                </span>
-                                <span class="text-sm font-medium text-black-700  ">
-                                    {{ $BarangayData[$barangays->brgy_id] }} %</span>
+                        <div class="card-title"> 
+                             
+                        </div>
+                        <div class="card-body  text-center">
+                             <h2 class="text-base text-center   font-medium text-red-700  ">
+                                {{ $barangays->brgyName }}
+                            </h2>
+                            <div class=" text-end mb-1">
+                                <h4 class=" ">
+                                    {{ $BarangayNum[$barangays->brgy_id] }}/{{ $BarangayReg[$barangays->brgy_id] }}
+                                    <span class="text-xl font-bold text-info ">
+                                        ({{ $BarangayData[$barangays->brgy_id] }} %)</span>
+                                </h4>
+
+
+
                             </div>
                             <div class="h-6 w-full bg-gray-200 rounded-full h-2.5 ">
+
                                 <div class="h-6 bg-red-600 text-large font-medium text-blue-50 text-center p-0.5 leading-none rounded-full"
                                     style="width:  {{ $BarangayData[$barangays->brgy_id] }}%">
                                     <span class=" font-weight-bold "> {{ $BarangayData[$barangays->brgy_id] }}</span>
