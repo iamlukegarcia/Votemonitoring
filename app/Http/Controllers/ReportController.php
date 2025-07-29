@@ -208,9 +208,9 @@ class ReportController extends Controller
             'PobUno' => $PobUno,
             'PobDos' => $PobDos,
             'PobTres' => $PobTres,
-            'RegVotes' =>  number_format($RegVotes),
-            'NumVotes' =>  number_format($NumVotes),
-            'InvalidVotes' =>  number_format($InvalidVotes),
+            'RegVotes' =>   $RegVotes,
+            'NumVotes' =>  $NumVotes,
+            'InvalidVotes' =>  $InvalidVotes,
         ];
         return view('Reports')->with($data);
         //return $data;
